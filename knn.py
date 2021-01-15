@@ -21,3 +21,5 @@ imagePaths = list(paths.list_images(args["dataset"]))
 
 sp = SimplePreprocessor(32, 32)
 sd1 = SimpleDatasetLoader(preprocessors=[sp])
+(data, labels) = sd1.load(imagePaths, Verbose=500)
+data = data.reshape((data.shape[0], 3072))

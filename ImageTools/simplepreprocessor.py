@@ -7,4 +7,4 @@ class SimplePreprocessor:
         self.inter = inter
 
     def preprocess(self, image):
-        return cv2.resize(image, (self.width, self.height), interoplation=self.inter)
+        return cv2.resize(image, (self.width, self.height), interpolation=self.inter)
