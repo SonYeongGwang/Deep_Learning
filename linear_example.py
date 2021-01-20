@@ -1,5 +1,6 @@
 import numpy as np
 import cv2
+from ImageTools import pyimagesearch
 
 labels = ['dogs', 'cats']
 np.random.seed(1)
@@ -19,3 +20,6 @@ for (label, score) in zip(labels, scores):
 cv2.putText(orig, "Label: {}".format(labels[np.argmax(scores)]), (10, 30), cv2.FONT_HERSHEY_SIMPLEX, 0.9, (0, 255, 0), 2)
 cv2.imshow("Image", orig)
 cv2.waitKey()
+
+per = pyimagesearch.Perceptron(2)
+per.pr()
