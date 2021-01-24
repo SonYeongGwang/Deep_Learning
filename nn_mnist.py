@@ -8,12 +8,11 @@ import numpy as np
 print("[INFO] loading MNIST (sample) dataset...")
 digits = datasets.load_digits()
 data = digits.data.astype("float")
-data = (data - data.min()) / (data.max() - data.min())
+data = (data - data.min()) / (data.max() - data.min())  # scaler(https://ebbnflow.tistory.com/137) for more information
 print("[INFO] samples: {}, dim: {}".format(data.shape[0], data.shape[1]))
 (trainX, testX, trainY, testY) = train_test_split(data, digits.target, test_size=0.25)
 
 trainY = LabelBinarizer().fit_transform(trainY)
-testY = LabelBinarizer().fit_transform(testY)
 
 print("[INFO] training network...")
 nn = NeuralNetwork([trainX.shape[1], 32, 16, 10])
