@@ -32,11 +32,13 @@ model = Sequential()
 model.add(Dense(256, input_shape=(784,), activation="sigmoid"))
 model.add(Dense(128, activation="sigmoid"))
 model.add(Dense(10, activation="softmax"))  #for normalized class
+model.save_weights("weights/trained_weight.h5")
 
 #train the model using SGD
 print("[INFO] training network...")
 sgd = SGD(0.01)
 model.compile(loss="categorical_crossentropy", optimizer=sgd, metrics=["accuracy"])
+model.save
 H = model.fit(trainX, trainY, validation_data=(testX, testY), epochs=Epochs, batch_size=128)
 #you have to use validation data(!= test data) to validate hyperparameters or architecture of the model
 

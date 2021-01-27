@@ -54,10 +54,12 @@ print(w[1])
 # for (X, Y) in zip(x, y):
 #     print(X, Y)
 #     print("1")
+    
+# print(X, Y)
 
-D = np.array([[[1, 2, 3], [4, 5, 6]],
-              [[7, 8, 9], [10, 11, 12]]])
-print(np.shape(D))
-D = D[: : -1]
-print(D)
+# D = np.array([[[1, 2, 3], [4, 5, 6]],
+#               [[7, 8, 9], [10, 11, 12]]])
+# print(np.shape(D))
+# D = D[: : -1]
+# print(D)
 # The general syntax for a slice is array[start:stop:step]. Any or all of the values start, stop, and step may be left out (and if step is left out the colon in front of it may also be left out):
