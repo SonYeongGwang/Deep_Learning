@@ -1,4 +1,4 @@
-from ImageTools.pyimagesearch import Perceptron
+from ImageTools.nn import Perceptron
 import numpy as np
 import matplotlib.pyplot as plt
 

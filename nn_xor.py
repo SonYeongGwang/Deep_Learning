@@ -1,4 +1,4 @@
-from ImageTools.pyimagesearch import NeuralNetwork
+from ImageTools.nn import NeuralNetwork
 import numpy as np
 import matplotlib.pyplot as plt
 
