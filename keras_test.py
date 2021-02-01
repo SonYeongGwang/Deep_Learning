@@ -3,6 +3,9 @@ from keras.layers.convolutional import Conv2D
 from sklearn.preprocessing import LabelBinarizer
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import classification_report
+from ImageTools import SimplePreprocessor
+from ImageTools import SimpleDatasetLoader
+from ImageTools import ImageArrayPreprocessor
 from keras.layers.core import Flatten
 from keras.layers.core import Activation
 from keras.optimizers import SGD
@@ -25,20 +28,44 @@ import cv2
 # model.add(Flatten())
 # print(model.output_shape)
 
-labels = np.array(['yes', 'no', 'no', 'yes'])
+# labels = np.array(['yes', 'no', 'no', 'yes'])
+# labelsOneHot = []
+# lb = LabelBinarizer()
+# lb_output = lb.fit_transform(labels)
+# print(lb_output, lb.classes_)
+
+# for label in labels:
+#     labelOneHot = [0, 1] if label == 'yes' else [1, 0]
+#     labelsOneHot.append(labelOneHot)
+
+# labelsOneHot = np.array(labelsOneHot)
+# print(labelsOneHot)
+
+# print(labelsOneHot.argmax(axis=1))
+
+
+imagePaths = list(paths.list_images("/home/a/animals/test_set/test_set/"))
+print(imagePaths)
+sp = SimplePreprocessor(32, 32)
+iap = ImageArrayPreprocessor()
+
+sd1 = SimpleDatasetLoader(preprocessors=[sp, iap])
+(data, labels) = sd1.load(imagePaths, Verbose=500)
+print(labels)
+
 labelsOneHot = []
 lb = LabelBinarizer()
-lb_output = lb.fit_transform(labels)
-print(lb_output, lb.classes_)
 
 for label in labels:
-    labelOneHot = [0, 1] if label == 'yes' else [1, 0]
+    labelOneHot = [1, 0] if label == 'cats' else [0, 1]
     labelsOneHot.append(labelOneHot)
 
 labelsOneHot = np.array(labelsOneHot)
 print(labelsOneHot)
 
-print(labelsOneHot.argmax(axis=1))
+# print(labelsOneHot.argmax(axis=1))
+
+
 
 # lb_output2 = lb.fit_transform(['c', 'd', 'a', '1'])
 # print(lb_output2, lb.classes_)
