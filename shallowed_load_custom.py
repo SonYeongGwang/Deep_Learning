@@ -31,6 +31,6 @@ print("[INFO] prediction...")
 preds = model.predict(data, batch_size=32).argmax(axis=1)
 
 image = cv2.imread(imagePath[0])
-cv2.putText(image, "Label: {}".format(labelNames[preds[0]]), (10, 30), cv2.FONT_HERSHEY_SIMPLEX, 0.7, (10, 220, 10))
+cv2.putText(image, "Label: {}".format(labelNames[preds[0]]), (10, 30), cv2.FONT_HERSHEY_SIMPLEX, 0.7, (10, 220, 10), 2)
 cv2.imshow("Image & predictions", image)
 cv2.waitKey(0)

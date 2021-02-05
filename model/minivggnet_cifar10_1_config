@@ -1,0 +1,7 @@
+lr = 0.005
+BN = True
+Nesterov = False
+epoch = 50
+batch_size = 64
+
+Final_Result(accuracy): 78%
