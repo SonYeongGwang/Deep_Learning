@@ -1,5 +1,5 @@
-import matplotlib
-matplotlib.use("Agg")
+# import matplotlib
+# matplotlib.use("Agg")
 
 from sklearn.preprocessing import LabelBinarizer
 from sklearn.metrics import classification_report
@@ -9,13 +9,16 @@ from keras.optimizers import SGD
 import matplotlib.pyplot as plt
 import numpy as np
 import argparse
+from GpuConfig import GpuMemoryAllocate
 
-epoch = 50
+GpuMemoryAllocate.SetMemoryGrowth()
 
-ap = argparse.ArgumentParser()
-ap.add_argument("-m", "--model", required=True, help="path to output model")
-ap.add_argument("-o", "--output", required=True, help = "path to the output loss/acc plot")
-args = vars(ap.parse_args())
+epoch = 5
+
+# ap = argparse.ArgumentParser()
+# ap.add_argument("-m", "--model", required=True, help="path to output model")
+# ap.add_argument("-o", "--output", required=True, help = "path to the output loss/acc plot")
+# args = vars(ap.parse_args())
 
 print("[INFO] loading images...")
 ((trainX, trainY), (testX, testY)) = cifar10.load_data()
@@ -37,8 +40,8 @@ print("[INFO] training network...")
 H = model.fit(trainX, trainY, validation_data=(testX, testY), epochs=epoch, verbose=1, batch_size=64)
 # 32 images will be presented to the network
 
-print("[INFO] serializing network...")
-model.save(args["model"])
+# print("[INFO] serializing network...")
+# model.save(args["model"])
 
 print("[INFO] evaluating network...")
 predictions = model.predict(testX, batch_size=32)
@@ -55,4 +58,5 @@ plt.title("Training Loss and Accuracy")
 plt.xlabel("The number of Epochs")
 plt.ylabel("Loss/Accuracy")
 plt.legend()
-plt.savefig(args["output"])
+# plt.savefig(args["output"])
+plt.show()
