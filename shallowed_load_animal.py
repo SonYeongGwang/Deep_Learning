@@ -7,6 +7,9 @@ from imutils import paths
 import numpy as np
 import argparse
 import cv2
+from GpuConfig import GpuMemoryAllocate
+
+GpuMemoryAllocate.SetMemoryGrowth()
 
 ap = argparse.ArgumentParser()
 ap.add_argument("-d", "--dataset", required=False, help="path to input dataset")
