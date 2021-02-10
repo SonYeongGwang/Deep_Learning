@@ -1,0 +1,7 @@
+lr = 0.001
+BN = True
+Nesterov = True (momentum=0.9, decay = (0.04/epoch)
+epoch = 100
+batch_size = 64
+
+Final_Result(accuracy): 79%

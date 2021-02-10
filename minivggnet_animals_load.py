@@ -20,7 +20,7 @@ labelNames = ["cat", "dog"]
 print("[INFO] sampling images...")
 
 imagePaths = np.array(list(paths.list_images(args["dataset"])))
-idxs = np.random.randint(0, len(imagePaths), size=(5, ))
+idxs = np.random.randint(0, len(imagePaths), size=(10, ))
 imagePaths = imagePaths[idxs]
 
 sp = SimplePreprocessor(32, 32)

@@ -56,9 +56,22 @@ Standars Distribution
 '''
 New way to index array
 '''
-path = np.array(['a', 'b', 'c', 'd', 'e', 'f', 'g'])
-idxs = np.random.randint(0, len(path), size=(10, ))
-print(idxs)
+# path = np.array(['a', 'b', 'c', 'd', 'e', 'f', 'g'])
+# idxs = np.random.randint(0, len(path), size=(10, ))
+# print(idxs)
 
-path = path[idxs]
-print(path, path.shape)
+# path = path[idxs]
+# print(path, path.shape)
+
+'''
+learning rate scheduler == learning rate annealing
+'''
+alpha = 0.01
+epoch = 100
+decay = alpha / epoch
+e = 1
+
+for i in np.arange(0, epoch):
+
+    print("{} alpha = {}".format((i + 1), alpha))
+    alpha = alpha * (1) / (1 + decay * e)
