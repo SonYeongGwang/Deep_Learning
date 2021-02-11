@@ -1,0 +1,12 @@
+lr = 0.01
+BN = True
+Nesterov = True (momentum=0.9, decay = none)
+epoch = 100
+batch_size = 64
+
+initAlpha = 0.01
+factor = 0.75
+dropEvery = 10
+learning_rate scheduler = initAlpha * (factor ** np.floor((1 + epoch) / dropEvery))
+
+Final_Result(accuracy): 79%
