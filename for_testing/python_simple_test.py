@@ -1,6 +1,8 @@
 import numpy as np
 import matplotlib.pyplot as plt
 import math
+import os
+from keras.callbacks import ModelCheckpoint
 
 # a = 6
 # b = 3
@@ -66,29 +68,46 @@ New way to index array
 '''
 learning rate scheduler == learning rate annealing
 '''
-alpha = 0.01
-epoch = 100
-decay = alpha / epoch
-e = 1
-alphas1 = []
-alphas2 = []
+# alpha = 0.01
+# epoch = 100
+# decay = alpha / epoch
+# e = 1
+# alphas1 = []
+# alphas2 = []
 
-for i in np.arange(0, epoch):
+# for i in np.arange(0, epoch):
 
-    print("{} alpha = {}".format((i + 1), alpha))
-    alpha = alpha * (1) / (1 + decay * e)
-    alphas1.append(alpha)
+#     print("{} alpha = {}".format((i + 1), alpha))
+#     alpha = alpha * (1) / (1 + decay * e)
+#     alphas1.append(alpha)
 
-initAlpha = 0.01
-factor = 0.5
-dropEvery = 10
-for i in np.arange(0, epoch):
-    alpha = initAlpha * (factor ** np.floor((1 + i) / dropEvery))
-    alphas2.append(alpha)
+# initAlpha = 0.01
+# factor = 0.5
+# dropEvery = 10
+# for i in np.arange(0, epoch):
+#     alpha = initAlpha * (factor ** np.floor((1 + i) / dropEvery))
+#     alphas2.append(alpha)
 
-plt.figure()
-plt.plot(np.arange(0, epoch), alphas1, label="alpha1")
-plt.plot(np.arange(0, epoch), alphas2, label="alpha2")
-plt.grid()
-plt.legend()
-plt.show()
+# plt.figure()
+# plt.plot(np.arange(0, epoch), alphas1, label="alpha1")
+# plt.plot(np.arange(0, epoch), alphas2, label="alpha2")
+# plt.grid()
+# plt.legend()
+# plt.show()
+
+'''
+dictionary simple test
+'''
+H = {}
+
+logs = {'x':[5, 6, 7], 'y':[1, 2, 3], 'z':[4, 7, 8]}
+
+for (k, v) in logs.items():
+    print("")
+    print(H)
+    l = H.get(k, [])
+    l.append(v)
+    H[k] = l
+
+print(logs['y'][:2])
+print("[INFO] process ID: {}".format(os.getpid()))
